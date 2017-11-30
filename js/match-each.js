@@ -224,8 +224,6 @@ function AddRealScheduleContent() {
     if(local_a_abstract_number==null) local_a_abstract_number=0;
     if(local_b_abstract_number==null) local_b_abstract_number=0;
     if(local_real_number==null) local_real_number=0;
-    alert(local_real_number);
-    $(".score-result").text(local_real_number);
     var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/getScheduleToProcess?id="+game_id+"&homeId="+hometeamid+"&awayId="+awayteamid;
     $.ajax({
         url:url,
