@@ -214,7 +214,7 @@ $(document).on("click",".leave-member li",function () {
     window.location.href="http://120.76.206.174:8080/efafootball-web/player-profile.html?player_id="+player_id;
 });
 function AddRealScheduleContent() {
-    $(".score-result").text(1111);
+    $(".score-result").text(2222);
     var a_abstractcontent=$(".a-abstract_ul");
     var b_abstractcontent=$(".b-abstract_ul");
     var realctcontent=$(".real-ul");
@@ -348,6 +348,7 @@ function SetContentStarted() {
         $(".team-atxt").text(single.homeTeamName);
         $(".team-btxt").text(single.awayTeamName);
         $(".score-result").text(single.homescore+':'+single.awayscore);
+        $(".score-result").text(1111);
         AddRealScheduleContent();
         }
     });
