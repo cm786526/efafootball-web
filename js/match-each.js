@@ -214,7 +214,6 @@ $(document).on("click",".leave-member li",function () {
     window.location.href="http://120.76.206.174:8080/efafootball-web/player-profile.html?player_id="+player_id;
 });
 function AddRealScheduleContent() {
-    alert("1111");
     var a_abstractcontent=$(".a-abstract_ul");
     var b_abstractcontent=$(".b-abstract_ul");
     var realctcontent=$(".real-ul");
@@ -225,6 +224,7 @@ function AddRealScheduleContent() {
     if(local_b_abstract_number==null) local_b_abstract_number=0;
     if(local_real_number==null) local_real_number=0;
     alert(local_real_number);
+    $(".score-result").text(local_real_number);
     var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/getScheduleToProcess?id="+game_id+"&homeId="+hometeamid+"&awayId="+awayteamid;
     $.ajax({
         url:url,
