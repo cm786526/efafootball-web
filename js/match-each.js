@@ -346,7 +346,8 @@ function SetContentStarted() {
         }
         $(".team-atxt").text(single.homeTeamName);
         $(".team-btxt").text(single.awayTeamName);
-        $(".score-result").text(single.homescore+':'+single.awayscore);
+        //$(".score-result").text(single.homescore+':'+single.awayscore);
+        $(".score-result").text(11111);
         AddRealScheduleContent();
         }
     });
