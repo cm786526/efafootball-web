@@ -326,7 +326,7 @@ function AddRealScheduleContent() {
         }
     });
 }
-setInterval("AddRealScheduleContent()",10000);
+//setInterval("AddRealScheduleContent()",10000);
 function SetContentStarted() {
     var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/getScheduleById?officeId="+match_id+"&id="+game_id;
     $.ajax({
