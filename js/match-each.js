@@ -24,6 +24,7 @@ $(document).ready(function () {
     }
     $(".real-schedule ").addClass("text-green").removeClass("text-black");
     $(".real-schedule").find(".triangle-container").addClass("shift-triangle");
+    //兼容iOS设备 清空缓存 实现方式修改
     window.onunload=clear_localstorage();
 });
 $(".real-schedule").click(function () {
