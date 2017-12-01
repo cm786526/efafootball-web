@@ -473,7 +473,7 @@ function clear_localstorage(){
     localStorage.removeItem("local_a_abstract_number");
     localStorage.removeItem("local_b_abstract_number");
     localStorage.removeItem("local_real_number");
-    console.log("clear");
+    alert("clear");
 }
 function CheckMember() {
     //根据localStorage缓存看是否登录
