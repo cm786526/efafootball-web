@@ -24,6 +24,7 @@ $(document).ready(function () {
     }
     $(".real-schedule ").addClass("text-green").removeClass("text-black");
     $(".real-schedule").find(".triangle-container").addClass("shift-triangle");
+    window.onunload=clear_localstorage();
 });
 $(".real-schedule").click(function () {
     $(".match-info-tab").find(".text-green").removeClass("text-green");
