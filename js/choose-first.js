@@ -21,7 +21,7 @@ $(".chooseStartFirst").click(function () {
         TIP_ERROR("选择的首发球员不能为空");
         return;
     }
-    var url="http://120.76.206.174:8080//efaleague-web/appPath/appData/asignStarting?matchId="+match_id+"&&teamId="+team_id+"&&memberIds="+memberIds;
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/asignStarting?matchId="+match_id+"&&teamId="+team_id+"&&memberIds="+memberIds;
     $.ajax({
         url:url,
         success:function (data) {
@@ -32,7 +32,7 @@ $(".chooseStartFirst").click(function () {
     });
 })
 function SetMember() { //展示报名球员 根据新版的报名功能
-    var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/viewSignUp?matchId="+match_id+"&&teamId="+team_id;
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/viewSignUp?matchId="+match_id+"&&teamId="+team_id;
     $.ajax({
         url:url,
         success:function (data) {
@@ -65,7 +65,7 @@ function SetMember() { //展示报名球员 根据新版的报名功能
 }
 
 function SetMemberNew() { //暂时该球队的所有球员
-    var url="http://120.76.206.174:8080//efaleague-web/appPath/appData/memberList?teamId="+team_id;
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/memberList?teamId="+team_id;
     $.ajax({
         url:url,
         success:function (data) {
@@ -101,7 +101,7 @@ function SetMemberNew() { //暂时该球队的所有球员
     });
 }
 function SetCheckbox() { //根据数据库查询当前比赛已经设置的首发球员 来填充选择的首发球员复选框
-    var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/viewStarting?matchId="+match_id+"&&teamId="+team_id;
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/viewStarting?matchId="+match_id+"&&teamId="+team_id;
     $.ajax({
         url:url,
         success:function (data) {

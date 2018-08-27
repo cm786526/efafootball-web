@@ -43,7 +43,7 @@ $(document).on("click",".delete-moment",function () {
     if (r==true) {
         var moment_id=$(this).closest("li").attr("id");
         var mythis=$(this).closest("li");
-        var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/Moment/delete?id="+moment_id;
+        var url= SERVER_IP + "/efaleague-web/appPath/appData/Moment/delete?id="+moment_id;
         $.ajax({
             url:url,
             success:function (data) {
@@ -61,7 +61,7 @@ $(document).on("click",".delete-comment",function () {
         var comment_id=$(this).closest("li").attr("id");
         var mythis=$(this).closest("li");
         var moment_id=$(this).closest(".each-moment").attr("id");
-        var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/Moment/delete-comment?id="+comment_id+"&moment_id="+moment_id;
+        var url= SERVER_IP + "/efaleague-web/appPath/appData/Moment/delete-comment?id="+comment_id+"&moment_id="+moment_id;
         $.ajax({
             url:url,
             success:function (data) {
@@ -80,7 +80,7 @@ $(document).on("click",".comment-confirm",function () {
     var r=confirm("你确定发表评论吗？")
     if (r==true) {
         var content=$("#commenttext").html();
-        var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/Moment/comment?user_id="+loginId+"&content="+content+"&moment_id="+current_moment_id;
+        var url= SERVER_IP + "/efaleague-web/appPath/appData/Moment/comment?user_id="+loginId+"&content="+content+"&moment_id="+current_moment_id;
         $.ajax({
             url:url,
             success:function (data) {
@@ -113,7 +113,7 @@ $(document).on("click","#praise",function () {
         $(this).addClass("on");
         var moment_id=$(this).closest("li").attr("id");
         var mythis=$(this);
-        var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/Moment/praise?user_id="+loginId+"&moment_id="+moment_id;
+        var url= SERVER_IP + "/efaleague-web/appPath/appData/Moment/praise?user_id="+loginId+"&moment_id="+moment_id;
         $.ajax({
             url:url,
             success:function (data) {
@@ -136,9 +136,9 @@ $(document).on("click","#praise",function () {
 function SetContent_new() {
     var url;
     if(typeof(owner_id)=="undefined"){
-        url="http://120.76.206.174:8080/efaleague-web/appPath/appData/Moment/getallmomentbypage?startpage="+startpage+"&numberperpage="+numberperpage;
+        url= SERVER_IP + "/efaleague-web/appPath/appData/Moment/getallmomentbypage?startpage="+startpage+"&numberperpage="+numberperpage;
     }else
-        url="http://120.76.206.174:8080/efaleague-web/appPath/appData/Moment/getonemomentbypage?owner_id="+owner_id+"&startpage="+startpage+"&numberperpage="+numberperpage;
+        url= SERVER_IP + "/efaleague-web/appPath/appData/Moment/getonemomentbypage?owner_id="+owner_id+"&startpage="+startpage+"&numberperpage="+numberperpage;
     var allcontent=$(".moment-ul");
     $.ajax({
         url:url,

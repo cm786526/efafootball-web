@@ -17,7 +17,7 @@ $(document).ready(function (){
         console.log(mine_info);
         SetContent(loginId);
     }else{
-        window.location.href="http://120.76.206.174:8080/efafootball-web/mine-login.html";
+        window.location.href= SERVER_IP + "/efafootball-web/mine-login.html";
     }
 });
 $(".login").click(function () {
@@ -38,10 +38,10 @@ $(".sign-apply").click(function () {
 });
 $(document).on("click",".logout",function () {
     localStorage.clear();
-    window.location.href="http://120.76.206.174:8080/efafootball-web/mine-login.html";
+    window.location.href= SERVER_IP + "/efafootball-web/mine-login.html";
 });
 $(document).on("click",".edit_info",function () {
-    window.location.href="http://120.76.206.174:8080/efafootball-web/mine-edit.html";
+    window.location.href= SERVER_IP + "/efafootball-web/mine-edit.html";
 });
 $(document).on("click",".edit_password",function () {
     var X=100;
@@ -50,10 +50,10 @@ $(document).on("click",".edit_password",function () {
 });
 $(document).on("click",".goto-team",function () {
     if($(this).attr("id")==""){
-        window.location.href="http://120.76.206.174:8080/efafootball-web/team.html?";
+        window.location.href= SERVER_IP + "/efafootball-web/team.html?";
     }else{
         var team_id=$(this).attr("id");
-        window.location.href="http://120.76.206.174:8080/efafootball-web/team-detail.html?team_id="+team_id;
+        window.location.href= SERVER_IP + "/efafootball-web/team-detail.html?team_id="+team_id;
     }
 })
 $(".close-edit").click(function(){
@@ -74,7 +74,7 @@ $(".editpassword-btn").click(function () {
     }
     if(confirm("是否确认修改密码？")){
         var loginId=localStorage.getItem("loginId");
-        var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/editPassword?password="+password1+"&loginId="+loginId;
+        var url= SERVER_IP + "/efaleague-web/appPath/appData/editPassword?password="+password1+"&loginId="+loginId;
         $.ajax({
             url:url,
             success:function (data) {
@@ -92,7 +92,7 @@ $(".editpassword-btn").click(function () {
 function SetContent(loginId) {
     // var loginId=mine_info["id"];
     //拉数据
-    var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/viewMember?loginId="+loginId;
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/viewMember?loginId="+loginId;
     $.ajax(
         {
             url: url,
@@ -288,7 +288,7 @@ function SetContent(loginId) {
 //根据缓存刷新页面
 function newSetContent(mine_info) {
     //拉数据
-    var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/viewMember?loginId=02ec4fdfcdbc448abb6a5067141b3950";
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/viewMember?loginId=02ec4fdfcdbc448abb6a5067141b3950";
     $.ajax(
         {
             url: url,

@@ -11,7 +11,7 @@ $(document).ready(function (){
     AddAllProfile();
     //从服务器获取domain和token
     $.ajax({
-        url:"http://120.76.206.174:8080/efaleague-web/appPath/appData/getImageByToken",
+        url: SERVER_IP + "/efaleague-web/appPath/appData/getImageByToken",
         success:function (data) {
             if(data.result=="success"){
                 token=data.message;
@@ -105,7 +105,7 @@ $(".save-edit").click(function () {
     var sponsorName=$("#sponsor_name").val();
     var captain=$("#captain").val();
     if(confirm("是否保存修改？")==true){
-        var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/updateTeam?id="+team_id+"&name="+name+"&photo="+photo+"&content="+content+"&home="+home+"&upper="+upper+"&lower="+lower+"&captain="+captain+"&shortName="+shortName+"&sponsorName="+sponsorName;
+        var url= SERVER_IP + "/efaleague-web/appPath/appData/updateTeam?id="+team_id+"&name="+name+"&photo="+photo+"&content="+content+"&home="+home+"&upper="+upper+"&lower="+lower+"&captain="+captain+"&shortName="+shortName+"&sponsorName="+sponsorName;
         $.ajax({
             url:url,
             success:function (data) {
@@ -188,7 +188,7 @@ function choose_city() {
     //to do
 }
 function AddAllProfile() {
-    var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/viewTeam?teamId="+team_id;
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/viewTeam?teamId="+team_id;
     $.ajax({
         type:"GET",
         url:url,

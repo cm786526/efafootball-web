@@ -6,7 +6,7 @@ var current_choose,xval; //标记当前所设置的属性，0 表示设置性别
 $(document).ready(function (){
     //从服务器获取domain和token
     $.ajax({
-        url:"http://120.76.206.174:8080/efaleague-web/appPath/appData/getImageByToken",
+        url: SERVER_IP + "/efaleague-web/appPath/appData/getImageByToken",
         success:function (data) {
             if(data.result=="success"){
                 token=data.message;
@@ -113,7 +113,7 @@ $(".save-edit").click(function () {
     var shortName=$("#short-name").val();
     var sponsorName=$("#sponsor_name").val();
     if(confirm("是否新建球队？")==true){
-        var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/createTeam?leader="+loginId+"&companyId=1&name="+name+"&photo="+photo+"&content="+content+"&home="+home+"&upper="+upper+"&lower="+lower+"&captain="+captain+"&shortName="+shortName+"&sponsorName="+sponsorName;
+        var url= SERVER_IP + "/efaleague-web/appPath/appData/createTeam?leader="+loginId+"&companyId=1&name="+name+"&photo="+photo+"&content="+content+"&home="+home+"&upper="+upper+"&lower="+lower+"&captain="+captain+"&shortName="+shortName+"&sponsorName="+sponsorName;
         $.ajax({
             url:url,
             success:function (data) {

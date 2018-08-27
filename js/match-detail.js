@@ -48,7 +48,7 @@ $(document).on("click",".round-num",function () {
 $(document).on("click",".all-matchs li",function () {
     var game_id=$(this).attr("value");
     var flag=$(this).find(".flag").attr("value");
-    window.location.href="http://120.76.206.174:8080/efafootball-web/match-each.html?match_id="+match_id+"&game_id="+game_id+"&flag="+flag;
+    window.location.href= SERVER_IP + "/efafootball-web/match-each.html?match_id="+match_id+"&game_id="+game_id+"&flag="+flag;
 })
 $(document).on("click",".shooter",function () {
     $(this).addClass(" background-green text-white");
@@ -62,7 +62,7 @@ $(document).on("click",".redyellow",function () {
 });
 $(document).on("click",".team-ul li",function () {
     var team_id=$(this).attr("id");
-    window.location.href="http://120.76.206.174:8080/efafootball-web/team-detail.html?team_id="+team_id;
+    window.location.href= SERVER_IP + "/efafootball-web/team-detail.html?team_id="+team_id;
 });
 $(document).on("click",".group_ul li",function () {
     current_group=$(this).index();
@@ -147,7 +147,7 @@ function AddIntroduceContent() {
     $(".all-billboard").addClass("hidden");
     $(".all-schedule").addClass("hidden");
     $(".all-team").addClass("hidden");
-    var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/officeViewData?id="+match_id;
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/officeViewData?id="+match_id;
     $.ajax({
         type:"GET",
         url:url,
@@ -210,7 +210,7 @@ function AddTeamContent() {
     $(".all-billboard").addClass("hidden");
     $(".all-schedule").addClass("hidden");
     $(".all-profile").addClass("hidden");
-    var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/allTeamByOffice?officeId="+match_id;
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/allTeamByOffice?officeId="+match_id;
     $.ajax({
         type:"GET",
         url:url,
@@ -245,7 +245,7 @@ function AddMatchContent() {
     $(".all-billboard").addClass("hidden");
     $(".all-profile").addClass("hidden");
     $(".all-team").addClass("hidden");
-    var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/getScheduleByTurn?officeId="+match_id;
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/getScheduleByTurn?officeId="+match_id;
     $.ajax({
         type:"GET",
         url:url,
@@ -365,7 +365,7 @@ function AddPointsContent(){
         '<th style="width: 6%;text-align: center">黄</th>'+
         '</tr>';
     allcontents.append(tablehead);
-    var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/leagueIntegral?officeId="+match_id;
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/leagueIntegral?officeId="+match_id;
     $.ajax({
         type:"GET",
         url:url,
@@ -395,7 +395,7 @@ function AddBillboardContent() {
             '<th class="main-penalty ">点球</th>'+
         '</tr>';
     allcontents.append(tablehead);
-    var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/getAllGoal?officeId="+match_id;
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/getAllGoal?officeId="+match_id;
     $.ajax({
         type:"GET",
         url:url,
@@ -433,7 +433,7 @@ function AddBillboardContent() {
             }
         }
     });
-    
+
 }
 
 function AddRedyellowContent() {
@@ -447,7 +447,7 @@ function AddRedyellowContent() {
         '<th class="main-penalty ">黄牌</th>'+
         '</tr>';
     allcontents.append(tablehead);
-    var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/getAllCard?officeId="+match_id;
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/getAllCard?officeId="+match_id;
     $.ajax({
         type:"GET",
         url:url,

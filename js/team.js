@@ -21,15 +21,15 @@ $("#create-team").click(function () {
         var mine_info = JSON.parse(localStorage.getItem("mine_info"));
         if(mine_info.team.id!=""){
             // TIP_ERROR("你已经加入了球队，不能新建球队！")
-            window.location.href="http://120.76.206.174:8080/efafootball-web/team-edit.html?team_id="+mine_info.team.id;
+            window.location.href= SERVER_IP + "/efafootball-web/team-edit.html?team_id="+mine_info.team.id;
             return;
         }
-        else window.location.href="http://120.76.206.174:8080/efafootball-web/team-new.html?";
+        else window.location.href= SERVER_IP + "/efafootball-web/team-new.html?";
     }else TIP_ERROR("未登陆，请先登陆");
 });
 $(document).on("click",".team-ul li",function () {
     var team_id=$(this).attr("id");
-    window.location.href="http://120.76.206.174:8080/efafootball-web/team-detail.html?team_id="+team_id;
+    window.location.href= SERVER_IP + "/efafootball-web/team-detail.html?team_id="+team_id;
 })
 function searchTeambyName() {
     //添加商品搜索处理
@@ -64,7 +64,7 @@ function reset_icon() {
 }
 function SetContent() {
     //拉数据
-    var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/allTeam?companyId=1";
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/allTeam?companyId=1";
     $.ajax(
         {
             url: url,

@@ -29,7 +29,7 @@ $(".editpassword-btn").click(function () {
     }
     if(confirm("是否确认修改号码？")){
         var loginId=localStorage.getItem("loginId");
-        var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/updateMemberNumber?member_id="+player_id+"&number="+number;
+        var url= SERVER_IP + "/efaleague-web/appPath/appData/updateMemberNumber?member_id="+player_id+"&number="+number;
         $.ajax({
             url:url,
             success:function (data) {
@@ -45,7 +45,7 @@ $(".editpassword-btn").click(function () {
 })
 //向后台请求数据刷新缓存信息
 function SetContent(id) {
-    var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/viewMemberById?id="+id;
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/viewMemberById?id="+id;
     //拉数据
     $.ajax(
         {
@@ -173,7 +173,7 @@ function CheckLeader() {
     var have_logined=localStorage.getItem("have_logined");
     if(have_logined==1){
         login_id=localStorage.getItem("loginId");
-        var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/checkLeader?teamId="+team_id+"&loginId="+login_id;
+        var url= SERVER_IP + "/efaleague-web/appPath/appData/checkLeader?teamId="+team_id+"&loginId="+login_id;
         $.ajax({
             url:url,
             success:function (data) {

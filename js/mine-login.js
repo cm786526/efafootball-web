@@ -16,7 +16,7 @@ $(".reset-btn").click(function () {
     if(confirm("密码重置后将会发送到手机号上，是否确定重置？")){
         var loginName=$("#userName").val();
         var phone=$("#telephone").val();
-        var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/getBackPassword?loginName="+loginName+"&phone="+phone;
+        var url= SERVER_IP + "/efaleague-web/appPath/appData/getBackPassword?loginName="+loginName+"&phone="+phone;
         $.ajax({
             url:url,
             success:function (data) {
@@ -35,7 +35,7 @@ $(".login-btn").click(function () {
     $(".sign-btn").removeClass("background-green text-white").addClass("background-greyf2");
     var loginName=$("#loginName").val();
     var password=$("#password").val();
-    var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/checkLogin?loginName="+loginName+"&password="+password;
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/checkLogin?loginName="+loginName+"&password="+password;
     $.ajax({
         url:url,
         success:function (data) {
@@ -46,7 +46,7 @@ $(".login-btn").click(function () {
                     //把json数据转换成字符串格式存储
                     localStorage.setItem("mine_info",JSON.stringify(data.rows[0]));
                     localStorage.setItem("loginId",data.rows[0].id);
-                    window.location.href="http://120.76.206.174:8080/efafootball-web/mine.html";
+                    window.location.href= SERVER_IP + "/efafootball-web/mine.html";
                 }
                 catch (err){
                     TIP_ERROR("无法写localstorage...");
@@ -61,5 +61,5 @@ $(".login-btn").click(function () {
 $(".sign-btn").click(function () {
     $(this).addClass("background-green text-white");
     $(".login-btn").removeClass("background-green text-white").addClass("background-greyf2");
-    window.location.href="http://120.76.206.174:8080/efafootball-web/mine-sign.html";
+    window.location.href= SERVER_IP + "/efafootball-web/mine-sign.html";
 });

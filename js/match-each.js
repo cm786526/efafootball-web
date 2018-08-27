@@ -93,11 +93,11 @@ $("#away-team-shape").click(function () {
 });
 $(".chooseStartFirst").click(function () {
     var team_id=CheckMember();//检查主队或者客队球员
-    if(team_id!=false) window.location.href="http://120.76.206.174:8080/efafootball-web/choose-first.html?match_id="+game_id+"&team_id="+team_id;
+    if(team_id!=false) window.location.href= SERVER_IP + "/efafootball-web/choose-first.html?match_id="+game_id+"&team_id="+team_id;
 });
 $(".signUpForOthers").click(function () {
     var team_id=CheckMember();//检查主队或者客队球员
-    if(team_id!=false) window.location.href="http://120.76.206.174:8080/efafootball-web/signupforothers.html?match_id="+game_id+"&team_id="+team_id;
+    if(team_id!=false) window.location.href= SERVER_IP + "/efafootball-web/signupforothers.html?match_id="+game_id+"&team_id="+team_id;
 });
 $(".showhome").click(function () {
     $(this).addClass("background-green").removeClass("light-white");
@@ -122,7 +122,7 @@ $(".signup").click(function () {
     $(this).find(".signup-Txt").addClass("text-white").removeClass("text-green");
     $(".leave").removeClass("background-green").addClass("light-white");
     $(".leave").find(".leave-Txt").removeClass("text-white").addClass("text-green");
-    var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/signUpMatch?memberId="+mine_info.id+"&&matchId="+game_id+"&&teamId="+teamId;
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/signUpMatch?memberId="+mine_info.id+"&&matchId="+game_id+"&&teamId="+teamId;
     $.ajax({
         url:url,
         success:function (data) {
@@ -166,7 +166,7 @@ $(".leave").click(function () {
     $(this).find(".leave-Txt").addClass("text-white").removeClass("text-green");
     $(".signup").removeClass("background-green").addClass("light-white");
     $(".signup").find(".signup-Txt").removeClass("text-white").addClass("text-green");
-    var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/askForLeave?memberId="+mine_info.id+"&&matchId="+game_id+"&&teamId="+teamId;
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/askForLeave?memberId="+mine_info.id+"&&matchId="+game_id+"&&teamId="+teamId;
     $.ajax({
         url:url,
         success:function (data) {
@@ -205,15 +205,15 @@ $(".leave").click(function () {
 });
 $(document).on("click",".each-position li",function () {
     var player_id=$(this).attr("id");
-    window.location.href="http://120.76.206.174:8080/efafootball-web/player-profile.html?player_id="+player_id;
+    window.location.href= SERVER_IP + "/efafootball-web/player-profile.html?player_id="+player_id;
 });
 $(document).on("click",".signup-member li",function () {
     var player_id=$(this).attr("id");
-    window.location.href="http://120.76.206.174:8080/efafootball-web/player-profile.html?player_id="+player_id;
+    window.location.href= SERVER_IP + "/efafootball-web/player-profile.html?player_id="+player_id;
 });
 $(document).on("click",".leave-member li",function () {
     var player_id=$(this).attr("id");
-    window.location.href="http://120.76.206.174:8080/efafootball-web/player-profile.html?player_id="+player_id;
+    window.location.href= SERVER_IP + "/efafootball-web/player-profile.html?player_id="+player_id;
 });
 function AddRealScheduleContent() {
     var a_abstractcontent=$(".a-abstract_ul");
@@ -225,7 +225,7 @@ function AddRealScheduleContent() {
     if(local_a_abstract_number==null) local_a_abstract_number=0;
     if(local_b_abstract_number==null) local_b_abstract_number=0;
     if(local_real_number==null) local_real_number=0;
-    var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/getScheduleToProcess?id="+game_id+"&homeId="+hometeamid+"&awayId="+awayteamid;
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/getScheduleToProcess?id="+game_id+"&homeId="+hometeamid+"&awayId="+awayteamid;
     $.ajax({
         url:url,
         success:function (data) {
@@ -272,7 +272,7 @@ function AddRealScheduleContent() {
         realctcontent.append(newroll);
         addstart++;
     }
-    var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/getInformation?id="+game_id+"&homeId="+hometeamid+"&awayId="+awayteamid;
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/getInformation?id="+game_id+"&homeId="+hometeamid+"&awayId="+awayteamid;
     $.ajax({
         url:url,
         success:function (data) {
@@ -329,7 +329,7 @@ function AddRealScheduleContent() {
 }
 setInterval("AddRealScheduleContent()",10000);
 function SetContentStarted() {
-    var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/getScheduleById?officeId="+match_id+"&id="+game_id;
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/getScheduleById?officeId="+match_id+"&id="+game_id;
     $.ajax({
         url:url,
         success:function (data) {
@@ -354,7 +354,7 @@ function SetContentStarted() {
     });
 }
 function SetContentNoStarted() {
-    var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/getScheduleById?officeId="+match_id+"&id="+game_id;
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/getScheduleById?officeId="+match_id+"&id="+game_id;
     $.ajax({
         url:url,
         success:function (data) {
@@ -389,7 +389,7 @@ function SetContentNoStarted() {
 function AddStartFirstContent(teamId) {
     $("#home-team").text(match_info.homeTeamName);
     $("#away-team").text(match_info.awayTeamName);
-    var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/getScheduleByMember?teamId="+teamId+"&scheduleId="+game_id;
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/getScheduleByMember?teamId="+teamId+"&scheduleId="+game_id;
     $.ajax({
         url:url,
         success:function (data) {
@@ -432,7 +432,7 @@ function AddStartFirstContent(teamId) {
     });
 }
 function AddStatisticContent() {
-    var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/getStatistical?id="+game_id+"&homeId="+hometeamid+"&awayId="+awayteamid;
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/getStatistical?id="+game_id+"&homeId="+hometeamid+"&awayId="+awayteamid;
     var statisticcontent=$(".statistic-info").empty();
     $.ajax({
         url:url,
@@ -496,7 +496,7 @@ function CheckMember() {
 }
 
 function showSignUp(teamId) { //展示报名球员
-    var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/viewSignUp?matchId="+game_id+"&&teamId="+teamId;
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/viewSignUp?matchId="+game_id+"&&teamId="+teamId;
     $.ajax({
         url:url,
         success:function (data) {
@@ -530,7 +530,7 @@ function showSignUp(teamId) { //展示报名球员
 }
 
 function showLeave(teamId) { //展示请假球员
-    var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/viewLeave?matchId="+game_id+"&&teamId="+teamId;
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/viewLeave?matchId="+game_id+"&&teamId="+teamId;
     $.ajax({
         url:url,
         success:function (data) {

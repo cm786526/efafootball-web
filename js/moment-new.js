@@ -8,7 +8,7 @@ var xval;
 $(document).ready(function (){
 	//从服务器获取domain和token
 	$.ajax({
-		url:"http://120.76.206.174:8080/efaleague-web/appPath/appData/getImageByToken",
+		url: SERVER_IP + "/efaleague-web/appPath/appData/getImageByToken",
 		success:function (data) {
 			if(data.result=="success"){
 				token=data.message;
@@ -152,7 +152,7 @@ $(".J_confirm").click(function(){
             $(".img-box img").removeClass("img-three").addClass("img-two");
 		}
         var imgs=$(".img-box").html();
-		var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/Moment/save?user_id="+login_id+"&content="+text+"&photo="+imgs;
+		var url= SERVER_IP + "/efaleague-web/appPath/appData/Moment/save?user_id="+login_id+"&content="+text+"&photo="+imgs;
 		$.ajax({
 			url:url,
 			type:"post",

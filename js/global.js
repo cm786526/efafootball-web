@@ -3,6 +3,7 @@
  */
 
 //获取url中"?"符后的字串
+var SERVER_IP = 'http://47.96.131.245:8080';
 function GetRequest() {
     var url = location.search;
     var theRequest = new Object();

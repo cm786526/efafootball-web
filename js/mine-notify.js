@@ -12,7 +12,7 @@ $(document).ready(function () {
 });
 function ShowNotify() {
     $.ajax({
-        url:"http://120.76.206.174:8080/efaleague-web/appPath/appData/getAllMemberByFlag?loginId="+loginId,
+        url: SERVER_IP + "/efaleague-web/appPath/appData/getAllMemberByFlag?loginId="+loginId,
         success:function (data) {
             console.log(data);
         }

@@ -6,7 +6,7 @@ var token,xval;
 $(document).ready(function (){
     //从服务器获取domain和token
     $.ajax({
-        url:"http://120.76.206.174:8080/efaleague-web/appPath/appData/getImageByToken",
+        url: SERVER_IP + "/efaleague-web/appPath/appData/getImageByToken",
         success:function (data) {
             if(data.result=="success"){
                 token=data.message;
@@ -108,7 +108,7 @@ $(".sign-btn").click(function () {
     var sex=$("#sex").text();
     var position=$("#position").text();
     var city=$("#City").text();
-    var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/createUser?loginName="+loginName+"&password="+password+"&name="+name+"&userType=1";
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/createUser?loginName="+loginName+"&password="+password+"&name="+name+"&userType=1";
     Sign_Up(url);
 });
 $(".position-ul li").click(function () {
@@ -166,7 +166,7 @@ function Sign_Up(url) {
                 localStorage.setItem("have_logined",1);
                 //把json数据转换成字符串格式存储
                 localStorage.setItem("loginId",data.message);
-                window.location.href="http://120.76.206.174:8080/efafootball-web/mine.html";
+                window.location.href= SERVER_IP + "/efafootball-web/mine.html";
             }
         }
     })

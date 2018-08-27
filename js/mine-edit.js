@@ -13,11 +13,11 @@ $(document).ready(function (){
         console.log(mine_info);
         SetContent(JSON.parse(mine_info));
     }else{
-        window.location.href="http://120.76.206.174:8080/efafootball-web/mine-login.html";
+        window.location.href= SERVER_IP + "/efafootball-web/mine-login.html";
     }
     //从服务器获取domain和token
     $.ajax({
-        url:"http://120.76.206.174:8080/efaleague-web/appPath/appData/getImageByToken",
+        url: SERVER_IP + "/efaleague-web/appPath/appData/getImageByToken",
         success:function (data) {
             if(data.result=="success"){
                 token=data.message;
@@ -174,7 +174,7 @@ $(".save-edit").click(function () {
         TIP_ERROR("体重必须为数字");
         return;
     }
-    var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/updateMember?id="+id+"&name="+name+"&loginId="+loginId+"&city="+city+
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/updateMember?id="+id+"&name="+name+"&loginId="+loginId+"&city="+city+
         "&number="+number+"&position="+position+"&cards="+cards+"&photo="+photo+"&telephone="+telephone+"&sex="+sex+"&age="+age+"&height="+height+"&weight="+weight;
     if(confirm("是否保存修改？")==true){{
         $.ajax({

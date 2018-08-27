@@ -21,7 +21,7 @@ $(".chooseStartFirst").click(function () {
         TIP_ERROR("选择的报名球员不能为空");
         return;
     }
-    var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/signUpMatchForOther?matchId="+match_id+"&&teamId="+team_id+"&&memberIds="+memberIds;
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/signUpMatchForOther?matchId="+match_id+"&&teamId="+team_id+"&&memberIds="+memberIds;
     $.ajax({
         url:url,
         success:function (data) {
@@ -32,7 +32,7 @@ $(".chooseStartFirst").click(function () {
     });
 })
 function SetMemberNew() { //暂时该球队的所有球员
-    var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/memberListNotLeave?teamId="+team_id+"&matchId="+match_id;
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/memberListNotLeave?teamId="+team_id+"&matchId="+match_id;
     $.ajax({
         url:url,
         success:function (data) {
@@ -69,7 +69,7 @@ function SetMemberNew() { //暂时该球队的所有球员
     });
 }
 function SetCheckbox() { //根据数据库查询当前比赛已经报名的球员 来填充选择的复选框
-    var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/viewSignUp?matchId="+match_id+"&&teamId="+team_id;
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/viewSignUp?matchId="+match_id+"&&teamId="+team_id;
     $.ajax({
         url:url,
         success:function (data) {

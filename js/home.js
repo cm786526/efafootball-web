@@ -11,7 +11,7 @@ $(document).on("click",".swiper-slide",function () {
 });
 $(document).on("click",".news_ul li",function () {
     console.log($(this).attr("url"));
-    var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/addViewNum?news_id="+$(this).attr("value");
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/addViewNum?news_id="+$(this).attr("value");
     $.ajax(
         {
             url: url,
@@ -38,7 +38,7 @@ $(".match-apply").click(function () {
     };
 });
 function SetSwiper() {
-    var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/bulletinData";
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/bulletinData";
     $.ajax({
         url:url,
         success:function (data) {
@@ -70,8 +70,7 @@ function SetSwiper() {
 }
 function SetContentOld() {
     //拉数据
-    var url="http://120.76.206.174:8080/efaleague-web/appPath/appData/newsData?id=1";
-    // var url="http://localhost:8080/efaleague-web/appPath/appData/newsData?id=1";
+    var url= SERVER_IP + "/efaleague-web/appPath/appData/newsData?id=1";
     $.ajax(
         {
             url: url,
